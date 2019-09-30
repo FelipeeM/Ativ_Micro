@@ -1,0 +1,176 @@
+// exercicio 1 -- revisado com o Professor
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Crescente {  //1 letra A,B,C,D
+ 
+ int max, mini, var;
+ public:
+ void set_values (int,int,int);
+ 
+   int incremento(){ 
+       for(int i = mini; i < max; i += var ){
+           cout << "valor do incremento de " <<var<<" entre: "<<mini<< " ate " <<max << " == "<< i << endl;
+        }
+        return 0;
+    }
+    int decremento(){ 
+        for(int i = max; i > mini; i -= var){
+            cout << "valor do decremento de " <<var<<" entre: "<<max<< " ate " <<mini << " == "<< i << endl;
+        }
+        return 0;
+    }
+    
+};
+
+void Crescente::set_values(int x, int y, int z){
+    
+  max = x;
+  mini = y;
+  var = z;
+   
+};
+
+class Verificar { //2 letra A,B,C,D
+ 
+    int valor, resultado;
+
+    public:
+        void set_verificar(int);
+      
+        int par(){
+            if(valor%2==0){
+                cout << "O numero " <<valor<< " é par" <<endl;
+            }else{
+                cout << "O numero " << valor << " é impar"<< endl; 
+            }
+
+            return 0;
+        }
+
+        int divisivel(){
+            if(valor%7==0){
+                cout <<"Divisivel por 7"<< endl;
+            } else {
+                cout <<"Não é divisivel por 7"<< endl;
+            }
+            return 0;
+        } 
+
+        int primo(){ 
+            resultado = 0;
+            for (int i = 2; i <= valor / 2; i++) {
+                if (valor % i == 0) {
+                    resultado++;
+                    break;
+                }  
+            }
+
+            if (resultado == 0){
+                cout <<"é um número primo\n" << valor << endl;
+            }else{
+                cout <<"é um número nao e primo\n" << valor << endl;
+            }
+
+            return resultado;     
+        }        
+};
+
+void Verificar::set_verificar(int x){
+    valor = x;   
+};
+
+class overFlow{// 3 letra A,B,C
+    
+    short valor;
+    public:
+    
+    void set_overFlow(int);
+    
+      int overflow(){
+             
+                 while(valor  > 0 ){
+     
+                 valor += 3000;
+                  cout << valor << endl;
+     
+                 }
+                cout << "overflow" << endl;
+                return 0;
+            }
+
+    };
+    
+void overFlow::set_overFlow(int x){
+    valor = x;   
+};
+
+class pontoFlutuante{
+    int valor;
+    
+    public:
+     
+    int mutiplicar15(){
+        
+        cin >> valor;
+        
+        valor = valor * 15;
+        valor = valor / 10;
+        
+        cout << valor << endl;
+        
+        return 0;
+        }
+    int mutiplicar75(){
+        
+        cin >> valor;
+        
+        valor = valor * 75;
+        
+        
+        cout << valor << "/100" << endl;
+        
+        return 0;
+        }        
+    
+        
+/*   int c = 10;
+	cout << "c ==" << c*(2/3) << endl;
+    // Resultado será Zero, pois 2/3 retornará a parte inteira da divisão que é o 0 antes da virgula
+
+    return 0;
+}
+Para resolver isso bastar criar uma variavel do tipo float e por a casa decimal em um dos valores da divisao 2/3
+exemplo 3.00
+
+int main()
+{
+   int c = 10;
+	cout << "c ==" << c*(2/3) << endl;
+    return 0;
+}
+*/
+    };
+    
+
+
+int main()
+{
+    
+  Crescente cresc;
+  Verificar verif;
+  pontoFlutuante flot;
+  cresc.set_values(500,0,250);
+  verif.set_verificar(52);
+  
+  cout << cresc.incremento() << endl;
+  cout << "verif.par() == " << verif.par() << endl;
+  cout << "verif.primo() == " << verif.primo() << endl;
+
+  verif.set_verificar(15*7+1);
+
+  return 0;
+
+}
